@@ -234,7 +234,7 @@ char **args;
 int status;
 
 do {
-printf("$ ");
+printf("#cisfun$ ");
 line = sh_read_line();
 args = sh_split_line(line);
 status = sh_execute(args);
