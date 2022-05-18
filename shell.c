@@ -27,7 +27,7 @@ int status;
 pid = fork();
 if (pid == 0)
 {
-if (execve(args[0], args, NULL) == -1)
+if (execve(args[0],args, NULL) == -1)
 {
 perror("./shell");
 }
@@ -160,4 +160,3 @@ int main(void)
 sh_loop();
 return (1);
 }
-
