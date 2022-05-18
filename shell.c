@@ -27,7 +27,7 @@ int status;
 pid = fork();
 if (pid == 0)
 {
-if (execve(args[0],args, NULL) == -1)
+if (execve(args[0], args, NULL) == -1)
 {
 perror("./shell");
 }
@@ -127,27 +127,21 @@ token = strtok(NULL, SH_TOK_DELIM);
 tokens[position] = NULL;
 return (tokens);
 }
+
 /**
  * sh_loop - loops the programms of the shell
  */
-
-
 void sh_loop(void)
 {
-char *line;
-char **args;
-int status;
+	char *line, **args;
+	int status;
 
-do {
-printf("#cisfun$ ");
-line = sh_read_line();
-args = sh_split_line(line);
-status = sh_execute(args);
-
-free(line);
-free(args);
-} while (status);
-
+	while (status)
+	{ printf("#cisfun$ ");
+		line = sh_read_line();
+		args = sh_split_line(line);
+		status = sh_execute(args);
+	}
 }
 
 /**
@@ -156,7 +150,5 @@ free(args);
  */
 
 int main(void)
-{
-sh_loop();
-return (1);
-}
+{	sh_loop();
+return (0); }
